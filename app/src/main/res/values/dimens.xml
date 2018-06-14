@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="borderZilch">0dp</dimen>
+    <dimen name="borderLeft">16dp</dimen>
+    <dimen name="borderTop">16dp</dimen>
+    <dimen name="borderRight">32dp</dimen>
+    <dimen name="borderDrawRight">12dp</dimen>
+<!--borderleft + 32dp image + borderdrawright -->
+    <dimen name="borderAnswers">60dp</dimen>
+
+    <dimen name="betweenQuestions">8dp</dimen>
+    <dimen name="betweenQuestionsSmall">4dp</dimen>
+
+    <dimen name="editTextTopPadding">0dp</dimen>
+    <dimen name="editTextBottomPadding">0dp</dimen>
+
+<!-- checkbox specific -->
+    <dimen name="checkBTWQA">4dp</dimen>
+    <dimen name="checkHeight">20dp</dimen>
+    <dimen name="checkBetween">40dp</dimen>
+    <dimen name="checkAfter">30dp</dimen>
+    <dimen name="checkBetweenQ03">22dp</dimen>
+
+<!-- radio button specific -->
+    <dimen name="radioHeight">20dp</dimen>
+    <dimen name="radioBetween">62dp</dimen>
+
+<!-- font sizes -->
+    <dimen name="txtQuestion">12sp</dimen>
+    <dimen name="txtEditText">12sp</dimen>
+
+</resources>

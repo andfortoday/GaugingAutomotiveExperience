@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--to do:
+
+    theme!
+    un-hardcode strings
+    how to stop keyboard from popping automatically
+    apply scroll view to linearlayout only? so banner stays visible...
+
+//    why does it crash when i run it?: banner image too large / scale main image down device metrics
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viewParentScroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context="com.zippitybippity.kevinski.gaugingautomotiveexperience.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/viewLayoutHolderOfAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+<!--this is a suspended piece from the porsche headquarters in atlanta, ga. -->
+        <ImageView
+            android:id="@+id/viewImageBanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:src="@drawable/nine18ceilingscaled" />
+
+        <!-- finding some icons to throw on the left of these coming texts and radios, etc
+        v/  oil             ready
+        v/  electrical
+        v/  check engine    ready
+        v/  wheel           ready
+        v/  road            ready
+        v/  maintenance
+        -->
+
+        <TextView
+            android:id="@+id/q01_TVOilTemp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/icon_oil"
+            android:drawableStart="@drawable/icon_oil"
+            android:drawablePadding="@dimen/borderDrawRight"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/borderLeft"
+            android:paddingStart="@dimen/borderLeft"
+            android:paddingTop="@dimen/borderZilch"
+            android:text="@string/q01_Question"
+            android:textSize="@dimen/txtQuestion" />
+        <!--q01 switcher-->
+        <ViewSwitcher
+            android:id="@+id/viewSwitchq01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/q01_ETAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/borderAnswers"
+                android:layout_marginStart="@dimen/borderAnswers"
+                android:layout_marginRight="@dimen/borderRight"
+                android:layout_marginEnd="@dimen/borderRight"
+                android:hint="@string/q01_EditTextHint"
+                android:paddingTop="@dimen/editTextTopPadding"
+                android:singleLine="true"
+                android:textSize="@dimen/txtEditText" />
+
+            <!-- this is the q01 switch to answer textview -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/borderAnswers"
+                android:layout_marginStart="@dimen/borderAnswers"
+                android:layout_marginRight="@dimen/borderRight"
+                android:paddingBottom="@dimen/betweenQuestionsSmall"
+                android:layout_marginEnd="@dimen/borderRight"
+                android:text="@string/q01_Explanation"
+                android:textSize="@dimen/txtQuestion"
+            />
+        </ViewSwitcher>
+        <!--q02 switcher-->
+        <ViewSwitcher
+            android:id="@+id/viewSwitchq02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- relative layout container for question 2 w checkboxes -->
+            <RelativeLayout
+                android:id="@+id/q02_RLHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/q02_TVWheelPattern"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/checkAfter"
+                    android:drawableLeft="@drawable/icon_wheel"
+                    android:drawablePadding="@dimen/borderDrawRight"
+                    android:paddingBottom="@dimen/checkBTWQA"
+                    android:paddingLeft="@dimen/borderLeft"
+                    android:text="@string/q02_Question"
+                    android:textSize="@dimen/txtQuestion" />
+
+                <LinearLayout
+                    android:id="@+id/q02_CB1-3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/q02_CB1Sequential"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_below="@+id/q02_TVWheelPattern"
+                        android:layout_marginLeft="@dimen/borderAnswers"
+                        android:text="@string/q02_ASequential"
+                        android:textSize="@dimen/txtQuestion" />
+
+                    <CheckBox
+                        android:id="@+id/q02_CB2WhoCares"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_below="@+id/q02_CB1Sequential"
+                        android:layout_marginLeft="@dimen/borderAnswers"
+                        android:text="@string/q02_AWhoCares"
+                        android:textSize="@dimen/txtQuestion" />
+
+                    <CheckBox
+                        android:id="@+id/q02_CB3StarPattern"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_below="@+id/q02_CB2WhoCares"
+                        android:layout_marginLeft="@dimen/borderAnswers"
+                        android:text="@string/q02_AStarPattern"
+                        android:textSize="@dimen/txtQuestion"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/q02_CB4-6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/q02_TVWheelPattern"
+                    android:layout_marginLeft="@dimen/checkBetween"
+                    android:layout_toRightOf="@id/q02_CB1-3"
+                    android:orientation="vertical"
+
+                    >
+
+                    <CheckBox
+                        android:id="@+id/q02_CB4InAir"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/q02_TVWheelPattern"
+                        android:layout_toRightOf="@id/q02_CB1Sequential"
+                        android:text="@string/q02_AInAir"
+                        android:textSize="@dimen/txtQuestion" />
+
+                    <CheckBox
+                        android:id="@+id/q02_CB5OnGround"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/q02_CB4InAir"
+                        android:layout_toRightOf="@id/q02_CB2WhoCares"
+                        android:text="@string/q02_AOnGround"
+                        android:textSize="@dimen/txtQuestion" />
+
+                    <CheckBox
+                        android:id="@+id/q02_CB6PartOnGround"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/q02_TVWheelPattern"
+                        android:layout_toRightOf="@id/q02_CB1Sequential"
+                        android:text="@string/q02_APartOnGround"
+                        android:textSize="@dimen/txtQuestion" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/q02_ANSRLHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/q02_ANSTVWheelPattern"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/checkAfter"
+                    android:drawableLeft="@drawable/icon_wheel"
+                    android:drawablePadding="@dimen/borderDrawRight"
+                    android:paddingBottom="@dimen/checkBTWQA"
+                    android:paddingLeft="@dimen/borderLeft"
+                    android:text="@string/q02_Question"
+                    android:textSize="@dimen/txtQuestion" />
+
+                <TextView
+                    android:id="@+id/q02_TVExplanation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/q02_ANSTVWheelPattern"
+                    android:paddingTop="@dimen/betweenQuestionsSmall"
+                    android:layout_marginLeft="@dimen/borderAnswers"
+                    android:layout_marginRight="@dimen/borderRight"
+                    android:paddingBottom="@dimen/checkBTWQA"
+                    android:text="@string/q02_Explanation"
+                    android:textSize="@dimen/txtQuestion"
+                    />
+                <!--revisit ^^ text needs to be stringified -->
+            </RelativeLayout>
+        </ViewSwitcher>
+        <!--q03 switcher-->
+        <ViewSwitcher
+            android:id="@+id/viewSwitchq03"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <!-- relative layout container for question 3 w checkboxes -->
+            <!-- switch 1 q&a's-->
+            <RelativeLayout
+                android:id="@+id/q03_RLHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/betweenQuestions"
+                >
+
+                <TextView
+                    android:id="@+id/q03_TVCrushWashers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/borderRight"
+                    android:drawableLeft="@drawable/icon_oil"
+                    android:drawablePadding="@dimen/borderDrawRight"
+                    android:paddingBottom="@dimen/checkBTWQA"
+                    android:paddingLeft="@dimen/borderLeft"
+                    android:text="@string/q03_Question"
+                    android:textSize="@dimen/txtQuestion" />
+
+                <LinearLayout
+                    android:id="@+id/q03_CB1-3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/q03_TVCrushWashers"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/q03_CB1Re-use"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_below="@+id/q03_TVCrushWashers"
+                        android:layout_marginLeft="@dimen/borderAnswers"
+                        android:text="@string/q03_AReuse"
+                        android:textSize="@dimen/txtQuestion" />
+
+                    <CheckBox
+                        android:id="@+id/q03_CB2HandTight"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_below="@+id/q03_CB1Re-use"
+                        android:layout_marginLeft="@dimen/borderAnswers"
+                        android:text="@string/q03_AHandTight"
+                        android:textSize="@dimen/txtQuestion" />
+
+                    <CheckBox
+                        android:id="@+id/q03_CB3Torque"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_below="@+id/q03_CB2HandTight"
+                        android:layout_marginLeft="@dimen/borderAnswers"
+                        android:text="@string/q03_ATorqueIt"
+                        android:textSize="@dimen/txtQuestion"
+
+                        />
+                </LinearLayout>
+                <!-- question 3 middle of two columns of checkboxes -->
+                <LinearLayout
+                    android:id="@+id/q03_CB4-5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/q03_TVCrushWashers"
+                    android:layout_marginLeft="@dimen/checkBetweenQ03"
+                    android:layout_marginRight="@dimen/borderRight"
+                    android:layout_toRightOf="@id/q03_CB1-3"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/q03_CB4New"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_below="@+id/q03_TVCrushWashers"
+                        android:layout_toRightOf="@id/q03_CB1Re-use"
+
+                        android:text="@string/q03_ANew"
+                        android:textSize="@dimen/txtQuestion" />
+
+                    <CheckBox
+                        android:id="@+id/q03_CB5TightsTight"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/q03_CB4New"
+                        android:layout_toRightOf="@id/q03_CB2HandTight"
+                        android:text="@string/q03_ATightsTight"
+                        android:textSize="@dimen/txtQuestion" />
+
+                    <CheckBox
+                        android:id="@+id/q03_CB6Ratatat"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/checkHeight"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/q03_CB5TightsTight"
+                        android:layout_toRightOf="@id/q03_CB3Torque"
+                        android:text="@string/q03_ARatatat"
+                        android:textSize="@dimen/txtQuestion" />
+
+                    />
+                </LinearLayout>
+            </RelativeLayout>
+            <!--switch 3 explanation-->
+            <RelativeLayout
+                android:id="@+id/q03_ANSRLHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/q03_ANSTVCrushWashers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/borderRight"
+                    android:drawableLeft="@drawable/icon_oil"
+                    android:drawablePadding="@dimen/borderDrawRight"
+                    android:paddingBottom="@dimen/checkBTWQA"
+                    android:paddingLeft="@dimen/borderLeft"
+                    android:paddingTop="@dimen/betweenQuestions"
+                    android:text="@string/q03_Question"
+                    android:textSize="@dimen/txtQuestion"
+                    />
+
+                <TextView
+                    android:id="@+id/q03_TVExplanation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/q03_ANSTVCrushWashers"
+                    android:paddingBottom="@dimen/checkBTWQA"
+                    android:paddingLeft="@dimen/borderAnswers"
+                    android:paddingTop="@dimen/betweenQuestionsSmall"
+                    android:layout_marginRight="@dimen/borderRight"
+                    android:text="@string/q03_Explanation"
+                    android:textSize="@dimen/txtQuestion"
+                    />
+
+
+            </RelativeLayout>
+        </ViewSwitcher>
+
+        <TextView
+            android:id="@+id/q04_TVAlignment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_road"
+            android:drawablePadding="@dimen/borderDrawRight"
+            android:paddingLeft="@dimen/borderLeft"
+            android:layout_marginRight="@dimen/borderRight"
+            android:text="@string/q04_Question"
+            android:textSize="@dimen/txtQuestion" />
+
+<!--q04 switcher-->
+        <ViewSwitcher
+            android:id="@+id/viewSwitchq04"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+<!--holder for two vertical linear layouts (holding radio buttons) -->
+            <RelativeLayout
+                android:id="@+id/q04_RL_LL_RBHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/betweenQuestions"
+                >
+
+                <LinearLayout
+                    android:id="@+id/q04_RB1-2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/radioBetween"
+                    android:layout_marginLeft="@dimen/borderAnswers"
+                    android:layout_marginRight="@dimen/radioBetween"
+                    android:layout_marginStart="@dimen/borderAnswers"
+                    android:orientation="vertical"
+
+                    >
+
+                    <RadioButton
+                        android:id="@+id/q04_RB1RR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/radioHeight"
+                        android:layout_marginBottom="@dimen/betweenQuestionsSmall"
+                        android:layout_marginTop="@dimen/betweenQuestionsSmall"
+                        android:onClick="onClickRadio"
+                        android:text="@string/q04_ARR"
+                        android:textSize="@dimen/txtQuestion"
+
+                        />
+
+                    <RadioButton
+                        android:id="@+id/q04_RB2RL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/radioHeight"
+                        android:onClick="onClickRadio"
+                        android:text="@string/q04_ARL"
+                        android:textSize="@dimen/txtQuestion"
+
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/q04_RB3-4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/q04_RB1-2"
+                    android:layout_toRightOf="@id/q04_RB1-2"
+                    android:orientation="vertical"
+
+                    >
+
+                    <RadioButton
+                        android:id="@+id/q04_RB3LL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/radioHeight"
+                        android:layout_marginBottom="@dimen/betweenQuestionsSmall"
+                        android:layout_marginTop="@dimen/betweenQuestionsSmall"
+                        android:onClick="onClickRadio"
+                        android:text="@string/q04_ALL"
+                        android:textSize="@dimen/txtQuestion"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/q04_RB4LR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/radioHeight"
+                        android:onClick="onClickRadio"
+                        android:text="@string/q04_ALR"
+                        android:textSize="@dimen/txtQuestion"
+                        />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/q04_TVExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/betweenQuestions"
+                android:layout_marginLeft="@dimen/borderAnswers"
+                android:layout_marginRight="@dimen/borderRight"
+                android:text="@string/q04_Explanation"
+                android:textSize="@dimen/txtQuestion"
+            />
+        </ViewSwitcher>
+
+        <!--
+
+                    &lt;!&ndash; radio button grouping for 1sr column q04 radio buttons &ndash;&gt;
+                    <RadioGroup
+                        android:id="@+id/q04_RG1-4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/betweenQuestionsSmall"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/q04_RB1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/radioHeight"
+                            android:layout_marginLeft="@dimen/borderAnswers"
+                            android:textSize="@dimen/txtQuestion"
+                            android:text="@string/q04_ARR"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/q04_RB2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/radioHeight"
+                            android:layout_marginLeft="@dimen/borderAnswers"
+                            android:textSize="@dimen/txtQuestion"
+                            android:text="@string/q04_ARL"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/q04_RB3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/radioHeight"
+                            android:layout_marginLeft="@dimen/borderAnswers"
+                            android:textSize="@dimen/txtQuestion"
+                            android:text="@string/q04_ALL"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/q04_RB4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/radioHeight"
+                            android:layout_marginLeft="@dimen/borderAnswers"
+                            android:textSize="@dimen/txtQuestion"
+                            android:text="@string/q04_ALR"
+                            />
+                    </RadioGroup>
+
+        -->
+
+        <!--buttons-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <!--test button-->
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="submitAnswers"
+                android:text="@string/btnSubmit"
+                android:textAllCaps="false"
+                />
+
+            <Button
+                android:id="@+id/btnResetAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="resetAll"
+                android:paddingLeft="@dimen/betweenQuestionsSmall"
+                android:text="@string/btnReset"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

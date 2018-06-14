@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Gauging Automotive Experience</string>
+
+    <string name="btnSubmit">"submit"</string>
+    <string name="btnReset">"reset"</string>
+
+    <string name="q01_Question">"1. at what temperature should you check oil in a car?"</string>
+    <string name="q01_EditTextHint">cold, warm, or hot?</string>
+    <string name="q01_jCold">cold</string>
+    <string name="q01_jWarm">warm</string>
+    <string name="q01_jHot">hot</string>
+    <string name="q01_IncorrectToast">"your input is incorrect on question 1. the answer is either: cold, warm, or hot."</string>
+    <string name="q01_Explanation">"normal operating temp of an engine is hot; oil expands when hot; contaminants suspended better when hot."</string>
+
+    <string name="q02_Question">"2. when putting a wheel on:\n· what pattern should the wheels be tightened in?\n· what load should they have on them when torqued?\n(2 correct)"</string>
+    <string name="q02_ASequential">"sequential"</string>
+    <string name="q02_AWhoCares">"doesn't matter"</string>
+    <string name="q02_AStarPattern">"star pattern"</string>
+    <string name="q02_AInAir">"in the air"</string>
+    <string name="q02_AOnGround">"fully on ground"</string>
+    <string name="q02_APartOnGround">"partially on ground"</string>
+    <string name="q02_IncorrectToast">"you have to select at least/most two options on question 2."</string>
+    <string name="q02_Explanation">"the wheel should be gradually tightened in an opposing/star manner when the car is lifted in the air. this will allow the wheel to pull evenly to the hub, and prevent damage. the wheel should be torqued when partially on the ground."</string>
+
+    <string name="q03_Question">"3. if a drain plug has a replaceable washer, you should (2 correct):"</string>
+    <string name="q03_AReuse">"re-use it"</string>
+    <string name="q03_AHandTight">"make it handtight"</string>
+    <string name="q03_ATorqueIt">"torque it"</string>
+    <string name="q03_ANew">"use a new one"</string>
+    <string name="q03_ATightsTight">"tight's tight"</string>
+    <string name="q03_ARatatat">"use the impact"</string>
+    <string name="q03_IncorrectToast">"you have to select at least/most two options on question 3."</string>
+    <string name="q03_Explanation">"crush washers must "<i>always</i>" be replaced and torqued to the correct specification so as to provide a tight seal against leaks"</string>
+
+    <string name="q04_Question">"4. with a normal alignment on a crowned road, a vehicle should drift _____ in the left lane and _____ in the right lane."</string>
+    <string name="q04_ARR">"right, right"</string>
+    <string name="q04_ARL">"right, left"</string>
+    <string name="q04_ALL">"left, left"</string>
+    <string name="q04_ALR">"left, right"</string>
+    <string name="q04_IncorrectToast">"you have to select at least one option on question 4."</string>
+    <string name="q04_Explanation">"crowned roads direct water away from the roadway. this means the high point of the road is in the center. which means a vehicle with a normal alignment will track left in the left lane, and right in the right."</string>
+
+    <string name="totalScore">"your score is "%d" of 4."</string>
+
+</resources>
