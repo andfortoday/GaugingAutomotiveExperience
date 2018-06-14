@@ -56,13 +56,25 @@ public class MainActivity extends AppCompatActivity {
     CheckBox chkNew;
     CheckBox chkTightsTight;
     CheckBox chkRatatat;
+    static final String CHK_REUSE = "chkReuse";
+    static final String CHK_HAND_TIGHT = "chkHandTight";
+    static final String CHK_TORQUE = "chkTorque";
+    static final String CHK_NEW = "chkNew";
+    static final String CHK_TIGHTS_TIGHT = "chkTightsTight";
+    static final String CHK_RATATAT = "chkRatatat";
+
 //q04 vars
     RadioButton rRR;
     RadioButton rRL;
     RadioButton rLL;
     RadioButton rLR;
+    static final String R_RR ="rRR";
+    static final String R_RL ="rRL";
+    static final String R_LL ="rLL";
+    static final String R_LR ="rLR";
 
     Button btnResetAll;
+    Button btnSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //      hide keyboard on start because first input is edit text
 //      https://stackoverflow.com/questions/18977187/how-to-hide-soft-keyboard-when-activity-starts/25786660#25786660
+        getResIDs();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
@@ -77,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt(TOTAL_SCORE,totalScore);
         savedInstanceState.putBoolean(QUIZ_SUBMITTED, quizSubmitted);
+        boolean isItChecked = chkSequential.isChecked();
         savedInstanceState.putBoolean(CHK_SEQUENTIAL,chkSequential.isChecked());
         savedInstanceState.putBoolean(CHK_WHO_CARES,chkWhoCares.isChecked());
         savedInstanceState.putBoolean(CHK_STAR, chkStar.isChecked());
@@ -84,6 +98,17 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putBoolean(CHK_ON_GROUND, chkOnGround.isChecked());
         savedInstanceState.putBoolean(CHK_PART_ON_GROUND, chkPartOnGround.isChecked());
         savedInstanceState.putString(Q01_OIL_TEMP, Q01_OilTemp.getText().toString());
+        savedInstanceState.putBoolean(CHK_REUSE, chkReuse.isChecked());
+        savedInstanceState.putBoolean(CHK_HAND_TIGHT, chkHandTight.isChecked());
+        savedInstanceState.putBoolean(CHK_TORQUE, chkTorque.isChecked());
+        savedInstanceState.putBoolean(CHK_NEW, chkNew.isChecked());
+        savedInstanceState.putBoolean(CHK_TIGHTS_TIGHT, chkTightsTight.isChecked());
+        savedInstanceState.putBoolean(CHK_RATATAT, chkRatatat.isChecked());
+        savedInstanceState.putBoolean(R_RR, rRR.isChecked());
+        savedInstanceState.putBoolean(R_RL, rRL.isChecked());
+        savedInstanceState.putBoolean(R_LL, rLL.isChecked());
+        savedInstanceState.putBoolean(R_LR, rLR.isChecked());
+        //    static final String BTN_RESET_ALL ="btnResetAll"; no need - doesn't change state
 
         super.onSaveInstanceState(savedInstanceState);
     }
@@ -91,7 +116,27 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-
+        
+        totalScore = savedInstanceState.getInt(TOTAL_SCORE);
+        quizSubmitted = savedInstanceState.getBoolean(QUIZ_SUBMITTED);
+        chkSequential.setChecked(savedInstanceState.getBoolean(CHK_SEQUENTIAL));
+        chkWhoCares.setChecked(savedInstanceState.getBoolean(CHK_WHO_CARES));
+        chkStar.setChecked(savedInstanceState.getBoolean(CHK_STAR));
+        chkInAir.setChecked(savedInstanceState.getBoolean(CHK_IN_AIR));
+        chkOnGround.setChecked(savedInstanceState.getBoolean(CHK_ON_GROUND));
+        chkPartOnGround.setChecked(savedInstanceState.getBoolean(CHK_PART_ON_GROUND));
+        Q01_OilTemp.setText(savedInstanceState.getString(Q01_OIL_TEMP));
+        chkReuse.setChecked(savedInstanceState.getBoolean(CHK_REUSE));
+        chkReuse.setChecked(savedInstanceState.getBoolean(CHK_HAND_TIGHT));
+        chkTorque.setChecked(savedInstanceState.getBoolean(CHK_TORQUE));
+        chkNew.setChecked(savedInstanceState.getBoolean(CHK_NEW));
+        chkTightsTight.setChecked(savedInstanceState.getBoolean(CHK_TIGHTS_TIGHT));
+        chkRatatat.setChecked(savedInstanceState.getBoolean(CHK_RATATAT));
+        rRR.setChecked(savedInstanceState.getBoolean(R_RR));
+        rRL.setChecked(savedInstanceState.getBoolean(R_RL));
+        rLL.setChecked(savedInstanceState.getBoolean(R_LL));
+        rLR.setChecked(savedInstanceState.getBoolean(R_LR));
+//        //    static final String BTN_RESET_ALL ="btnResetAll"; no need - doesn't change state
 
     }
 
@@ -167,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
         rLR = findViewById(R.id.q04_RB4LR);
 
         btnResetAll = findViewById(R.id.btnResetAll);
+        btnSubmit = findViewById(R.id.btnSubmit);
     }
 
     private void q01_AnalyzeText(String theText) {
@@ -293,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
     public void submitAnswers(View view) {
         if (quizSubmitted == false) {
             int howMany = 0;
-            getResIDs();
+//            getResIDs();
 //  begin q01
             String theText;
             theText = Q01_OilTemp.getText().toString().toLowerCase(); //equalsignorecase??
@@ -406,7 +452,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void resetAll(View view) {
-        getResIDs();
+//        getResIDs();
         totalScore = 0;
 //q01
         Q01_OilTemp.setText("");
